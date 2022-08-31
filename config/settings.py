@@ -36,14 +36,17 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'accounts',
+    # local apps
+    'accounts.apps.AccountsConfig',
+    'products.apps.ProductsConfig',
+    'pages.apps.PagesConfig',
 
+    # third party apps
     'crispy_forms',
-
-    'pages',
     'allauth',
     'allauth.account',
 ]
+
 SITE_ID = 1
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
