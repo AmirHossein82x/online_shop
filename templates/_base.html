@@ -119,14 +119,21 @@
     </div>
 </header>
 <!-- Header End -->
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
 {% block content %}{% endblock %}
 
 <!-- ************************* JS Files ************************* -->
 
 <!-- jQuery JS -->
-<script src="{% static 'js/vendor.js' %}"></script>
+<script src="{% static 'js/vendor.js' %}" type=""></script>
 
 <!-- Main JS -->
-<script src="{% static 'js/main.js' %}"></script>
+<script src="{% static 'js/main.js' %}" type=""></script>
 </body>
 </html>
