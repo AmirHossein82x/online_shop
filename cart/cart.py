@@ -18,6 +18,8 @@ class Cart:
         else:
             self.cart[product_id]['quantity'] += quantity
 
+        self.save()
+
     def remove(self, product):
         product_id = str(product.id)
         if product_id in self.cart:
