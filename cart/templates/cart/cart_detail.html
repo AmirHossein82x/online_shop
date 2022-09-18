@@ -23,12 +23,14 @@
     <!-- Breadcrumb area End -->
     <!-- Main Content Wrapper Start -->
     <div class="main-content-wrapper">
+        {% include 'top_header.html' with header_name='Cart' %}
         <div class="page-content-inner ptb--80">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 mb-md--50">
                             <div class="row no-gutters">
                                 <div class="col-12">
+                                {% if cart %}
                                     <div class="table-content table-responsive">
                                         <table class="table text-center">
                                             <thead>
@@ -73,7 +75,7 @@
                                                 </td>
                                                 <td class="product-total-price">
                                                             <span class="product-price-wrapper">
-                                                                <span class="money">{{ item.product_obj.price }} تومان</span>
+                                                                <span class="money">{{ item.total_price }} تومان</span>
                                                             </span>
                                                 </td>
                                             </tr>
@@ -81,6 +83,8 @@
                                             </tbody>
                                         </table>
                                     </div>
+                                    {% else %} <p>cart is empty please add some product to the cart | <a href="{% url 'product_list' %}">Go shopping</a></p>
+                                {% endif %}
                                 </div>
                             </div>
                             <div class="row no-gutters border-top pt--20 mt--20">
@@ -100,18 +104,9 @@
                                             <span>مجموع</span>
                                         </div>
                                         <div class="cart-calculator__item--value">
-                                            <span>۳۴۶,۰۰۰ تومان</span>
+                                            <span>{{ cart.get_total_price }}</span>
                                         </div>
                                     </div>
-                                    <div class="cart-calculator__item order-total">
-                                        <div class="cart-calculator__item--head">
-                                            <span>جمع کل</span>
-                                        </div>
-                                        <div class="cart-calculator__item--value">
-                                                <span class="product-price-wrapper">
-                                                    <span class="money">۳۴۶,۰۰۰ تومان</span>
-                                                </span>
-                                        </div>
                                     </div>
                                 </div>
                             </div>

@@ -24,18 +24,18 @@ class ProductDetailView(generic.DetailView):
         # context['add_to_cart_form'] = AddToCartProductForm()
         return context
 
-class CommentCreateView(generic.CreateView, SuccessMessageMixin):
+class CommentCreateView(generic.CreateView):
     model = Comment
     form_class = CommentForm
-    success_message = "%(calculated_field)s was created successfully"
+    # success_message = "%(calculated_field)s was created successfully"
 
     # def get_success_url(self):
     #     return reverse('product_list')
-    def get_success_message(self, cleaned_data):
-        return self.success_message % dict(
-            cleaned_data,
-            calculated_field=self.object.calculated_field,
-        )
+    # def get_success_message(self, cleaned_data):
+    #     return self.success_message % dict(
+    #         cleaned_data,
+    #         calculated_field=self.object.calculated_field,
+    #     )
 
     def form_valid(self, form):
         obj = form.save(commit=False)

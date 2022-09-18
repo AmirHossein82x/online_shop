@@ -73,6 +73,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # custom context processor
+                'cart.context_processors.cart',
             ],
         },
     },
@@ -147,7 +149,8 @@ LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 CRISPY_TEMPLATE_PACK = 'Bootstrap4'
 
-MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+# MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
 
 # all auth setting
 ACCOUNT_SESSION_REMEMBER = True
